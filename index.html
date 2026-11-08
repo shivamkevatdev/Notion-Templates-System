@@ -1,0 +1,208 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Freelance Editor OS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: single column, centered content width, one hero, then plain sections. */
+:root {
+  --bg: #f7f8f5;
+  --surface: #ffffff;
+  --ink: #111a14;
+  --muted: #5d6a61;
+  --line: #dfe5df;
+  --green: #1d7a4b;
+  --green-soft: #e6f2ea;
+  --green-ink: #0f5232;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c140f;
+    --surface: #132019;
+    --ink: #eef4ef;
+    --muted: #9fb0a4;
+    --line: #22332a;
+    --green: #3fbf7b;
+    --green-soft: #17301f;
+    --green-ink: #8fe0b4;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c140f;
+  --surface: #132019;
+  --ink: #eef4ef;
+  --muted: #9fb0a4;
+  --line: #22332a;
+  --green: #3fbf7b;
+  --green-soft: #17301f;
+  --green-ink: #8fe0b4;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 24px 72px; }
+h1, h2, h3 { text-wrap: balance; letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2.1rem, 6vw, 3.6rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
+p { margin: 0; color: var(--muted); max-width: 62ch; }
+.label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-ink); }
+nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 8px 40px; }
+.brand { font-weight: 700; font-size: 0.95rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+  background: var(--green); color: #fff; text-decoration: none;
+  padding: 14px 22px; border-radius: 10px; font-weight: 600; font-size: 1rem;
+  border: 0; cursor: pointer;
+}
+.btn:focus-visible, a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.btn small { font-weight: 500; opacity: 0.85; }
+.hero { display: grid; gap: 28px; padding-block: 24px 56px; }
+.hero .lede { font-size: 1.1rem; }
+.price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.price s { color: var(--muted); font-size: 1.1rem; }
+.price strong { font-size: 2rem; font-weight: 800; color: var(--ink); }
+.cta-row { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.cta-row .note { font-size: 0.85rem; color: var(--muted); }
+.shot { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.shot img { display: block; width: 100%; height: auto; }
+.shot figcaption { padding: 12px 16px; font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); }
+section { padding-block: 56px 0; display: grid; gap: 24px; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 8px; min-width: 0; }
+.card p { font-size: 0.95rem; }
+.steps { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.steps div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 12px 24px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.steps p { font-size: 0.95rem; }
+.inc li { list-style: none; padding-block: 10px; border-bottom: 1px solid var(--line); color: var(--ink); }
+.inc ul { margin: 0; padding: 0; }
+.buy { background: var(--green-soft); border-radius: 16px; padding: clamp(22px, 5vw, 40px); display: grid; gap: 18px; justify-items: start; }
+.buy p { color: var(--ink); }
+details { border-bottom: 1px solid var(--line); padding-block: 16px; }
+summary { cursor: pointer; font-weight: 600; }
+details p { margin-top: 8px; font-size: 0.95rem; }
+footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+@media (min-width: 760px) {
+  .hero { grid-template-columns: 1fr 1.2fr; align-items: center; }
+}
+@media (max-width: 520px) {
+  .steps div { grid-template-columns: 1fr; gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <nav>
+    <span class="brand">Freelance Editor OS</span>
+    <span class="label">by The Kevat Labs</span>
+  </nav>
+
+  <header class="hero">
+    <div style="display:grid; gap:20px;">
+      <span class="label">Notion template for freelance editors</span>
+      <h1>Track every client, edit and payment in one place.</h1>
+      <p class="lede">A simple Notion workspace for freelance video editors. Keep your clients, projects, outreach and unpaid invoices in one dashboard, so nothing slips while you work.</p>
+      <div class="cta-row">
+        <div class="price"><s>₹249</s><strong>₹99</strong><span class="label">one time</span></div>
+        <a class="btn" href="#buy">Get the template</a>
+        <span class="note">Checkout goes live soon. Until then, this is a preview.</span>
+      </div>
+    </div>
+    <figure class="shot" style="margin:0;">
+      <img src="dashboard-preview.png" alt="Dashboard of the Freelance Editor OS template showing active projects, outreach follow-ups and unpaid work" width="2000" height="1466">
+      <figcaption>Dashboard with sample data. Replace it with your own clients.</figcaption>
+    </figure>
+  </header>
+
+  <section>
+    <span class="label">What is inside</span>
+    <h2>Three connected databases and one dashboard.</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Clients</h3>
+        <p>Name, platform, status and what they need. One row per client, with contact details kept in the same place.</p>
+      </div>
+      <div class="card">
+        <h3>Projects</h3>
+        <p>Each job linked to its client, with a status, deadline, rate and a paid checkbox with the payment date.</p>
+      </div>
+      <div class="card">
+        <h3>Outreach</h3>
+        <p>Every DM, email and call you send, with the response and a follow-up date so you know who to contact next.</p>
+      </div>
+      <div class="card">
+        <h3>Dashboard</h3>
+        <p>Active work, follow-ups due and delivered-but-unpaid projects, all on one page you open each morning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">How it works</span>
+    <h2>Set it up in about 15 minutes.</h2>
+    <div class="steps">
+      <div><h3>1. Duplicate</h3><p>Open the template link and choose Duplicate to copy it into your own Notion.</p></div>
+      <div><h3>2. Delete the samples</h3><p>Remove the sample rows. They show how the links between databases work.</p></div>
+      <div><h3>3. Add your clients</h3><p>Add each client once in Clients. Then link projects and outreach to them.</p></div>
+      <div><h3>4. Use the dashboard</h3><p>Check Follow-ups due and Delivered but unpaid every day. Those are the two things that cost money when ignored.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">What you get</span>
+    <div class="inc">
+      <ul>
+        <li>Notion template with all databases, relations and linked dashboard views</li>
+        <li>Start Here page with setup steps</li>
+        <li>Sample rows you can delete in one go</li>
+        <li>Works on desktop and the Notion mobile app</li>
+        <li>English only</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="buy">
+    <div class="buy">
+      <span class="label">One time purchase</span>
+      <h2>Freelance Editor OS</h2>
+      <p>₹99 instead of ₹249, one time. You get the full template, ready to duplicate into your Notion.</p>
+      <a class="btn" href="#">Get the template for ₹99</a>
+      <span class="note" style="font-size:0.85rem;color:var(--muted);">Payment is not connected yet. This button will open checkout once it is.</span>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Questions</span>
+    <details>
+      <summary>Do I need to know Notion well?</summary>
+      <p>No. If you can type and click, you can use this. The Start Here page explains the five setup steps.</p>
+    </details>
+    <details>
+      <summary>Can I use it on my phone?</summary>
+      <p>Yes. The Notion app shows the same databases and dashboard, though setting up is easier on a laptop.</p>
+    </details>
+    <details>
+      <summary>Is it only for video editors?</summary>
+      <p>It is built for editors, but the Clients, Projects and Outreach setup works for any small freelance service.</p>
+    </details>
+    <details>
+      <summary>Does it include my personal data?</summary>
+      <p>No. Every row is sample data that you delete and replace with your own.</p>
+    </details>
+  </section>
+
+  <footer>
+    <span>© The Kevat Labs</span>
+    <span>Questions? Message @thekevatlabs on Instagram.</span>
+  </footer>
+</div>
+
+</body></html>
